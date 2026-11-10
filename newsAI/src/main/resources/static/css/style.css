@@ -1,0 +1,181 @@
+:root {
+    color-scheme: light;
+    font-family: "Segoe UI", "Malgun Gothic", Arial, sans-serif;
+    background: #f4f6f8;
+    color: #17212b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+a {
+    color: inherit;
+}
+
+.page {
+    width: min(1040px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 48px 0;
+}
+
+.search-panel,
+.summary {
+    background: #ffffff;
+    border: 1px solid #dfe5ec;
+    border-radius: 8px;
+    padding: 28px;
+}
+
+.eyebrow {
+    margin: 0 0 8px;
+    color: #2a6f97;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+h1 {
+    max-width: 720px;
+    margin-bottom: 28px;
+    font-size: 42px;
+    line-height: 1.12;
+}
+
+h2 {
+    margin-bottom: 12px;
+    font-size: 24px;
+}
+
+h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 1.45;
+}
+
+.search-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.search-row {
+    display: grid;
+    grid-template-columns: 1fr 112px;
+    gap: 10px;
+}
+
+input,
+button {
+    min-height: 48px;
+    border-radius: 8px;
+    font: inherit;
+}
+
+input {
+    width: 100%;
+    border: 1px solid #c7d0da;
+    padding: 0 14px;
+}
+
+button {
+    border: 0;
+    background: #1d4ed8;
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #173da6;
+}
+
+.error {
+    margin: 16px 0 0;
+    color: #b42318;
+    font-weight: 700;
+}
+
+.result-section {
+    display: grid;
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.summary p:last-child {
+    margin-bottom: 0;
+    color: #34495e;
+    line-height: 1.7;
+}
+
+.articles {
+    display: grid;
+    gap: 12px;
+}
+
+.article-card {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    background: #ffffff;
+    border: 1px solid #dfe5ec;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.article-card p {
+    margin-bottom: 0;
+    color: #566574;
+    line-height: 1.6;
+}
+
+.source {
+    color: #2a6f97;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+time {
+    flex: 0 0 auto;
+    color: #718096;
+    font-size: 13px;
+}
+
+@media (max-width: 680px) {
+    .page {
+        width: min(100% - 20px, 1040px);
+        padding: 24px 0;
+    }
+
+    .search-panel,
+    .summary,
+    .article-card {
+        padding: 18px;
+    }
+
+    .search-row,
+    .article-card {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    button {
+        width: 100%;
+    }
+}

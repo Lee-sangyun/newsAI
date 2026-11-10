@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NewsAI</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<main class="page">
+    <section class="search-panel">
+        <p class="eyebrow">NewsAI</p>
+        <h1>궁금한 주제의 최신 뉴스를 요약합니다</h1>
+
+        <form class="search-form" th:action="@{/search}" method="post">
+            <label for="topic">뉴스 주제</label>
+            <div class="search-row">
+                <input id="topic" name="topic" type="search" th:value="${topic}"
+                       placeholder="예: 인공지능 규제, 삼성전자, 기후 변화" maxlength="80" required>
+                <button type="submit">검색</button>
+            </div>
+        </form>
+
+        <p class="error" th:if="${errorMessage}" th:text="${errorMessage}"></p>
+    </section>
+
+    <section class="result-section" th:if="${result}">
+        <div class="summary">
+            <p class="eyebrow" th:text="|검색 주제: ${result.topic()}|">검색 주제</p>
+            <h2>요약</h2>
+            <p th:text="${result.summary()}"></p>
+        </div>
+
+        <div class="articles">
+            <article class="article-card" th:each="article : ${result.articles()}">
+                <div>
+                    <p class="source" th:text="${article.source()}">출처</p>
+                    <h3>
+                        <a th:href="${article.link()}" target="_blank" rel="noopener noreferrer"
+                           th:text="${article.title()}">기사 제목</a>
+                    </h3>
+                    <p th:if="${article.description()}" th:text="${article.description()}">기사 설명</p>
+                </div>
+                <time th:if="${article.publishedAt()}" th:text="${article.publishedAt()}">날짜</time>
+            </article>
+        </div>
+    </section>
+</main>
+</body>
+</html>
